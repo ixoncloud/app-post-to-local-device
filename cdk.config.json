@@ -1,5 +1,14 @@
 {
   "$schema": "./node_modules/@ixon-cdk/core/config/schema.json",
   "prefix": "app",
-  "components": {}
+  "components": {
+    "post-to-local-device": {
+      "runner": {
+        "build": {
+          "builder": "@ixon-cdk/svelte-builder:browser",
+          "input": "post-to-local-device.svelte"
+        }
+      }
+    }
+  }
 }
