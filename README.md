@@ -1,6 +1,6 @@
-# IXON Post command to local device
+# IXON Post to local device
 
-Welcome to the workspace for developing the frontend components for the IXON Post command to local device app.
+Welcome to the workspace for developing the frontend components for the IXON Post to local device app.
 
 ## Basic information
 
@@ -14,5 +14,5 @@ To get started, download this project as a ZIP, and extract it to your desired l
 
 ```sh
 npm install
-npx cdk simulate post-command-to-local-device
+npx cdk simulate post-to-local-device
 ```
