@@ -1,5 +1,5 @@
 {
-  "name": "post-command-to-local-device",
+  "name": "post-to-local-device",
   "version": "0.0.1",
   "license": "MIT",
   "devDependencies": {},
