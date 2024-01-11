@@ -9,44 +9,61 @@
   },
   "inputs": [
     {
-      "key": "httpServerName",
-      "type": "String",
-      "label": "HTTP Server Name",
-      "required": true
-    },
-    {
-      "key": "plcCommand",
-      "type": "String",
-      "label": "Command",
-      "required": true
-    },
-    {
-      "key": "action",
-      "label": "Action",
-      "required": true,
-      "type": "Selection",
-      "options": [
+      "key": "info",
+      "type": "Group",
+      "label": "Info",
+      "children": [
         {
-          "value": "button",
-          "label": "Button"
+          "key": "label",
+          "type": "String",
+          "label": "Label",
+          "required": true
         },
         {
-          "value": "input",
-          "label": "Input"
+          "key": "action",
+          "label": "Action",
+          "required": true,
+          "type": "Selection",
+          "options": [
+            {
+              "value": "button",
+              "label": "Button"
+            },
+            {
+              "value": "input",
+              "label": "Input + button"
+            }
+          ]
         }
       ]
     },
     {
-      "key": "label",
-      "type": "String",
-      "label": "Label",
-      "required": true
-    },
-    {
-      "key": "baseValue",
-      "type": "String",
-      "label": "Value",
-      "required": true
+      "key": "settings",
+      "type": "Group",
+      "label": "Post command settings",
+      "children": [
+        {
+          "key": "httpServerName",
+          "type": "String",
+          "label": "HTTP Server Name",
+          "translate": false,
+          "required": true
+        },
+        {
+          "key": "plcCommand",
+          "type": "String",
+          "label": "Command",
+          "translate": false,
+          "required": true
+        },
+        {
+          "key": "baseValue",
+          "type": "String",
+          "label": "Value",
+          "translate": false,
+          "required": true
+        }
+      ]
     }
   ]
 }

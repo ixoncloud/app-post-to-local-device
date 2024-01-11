@@ -25,11 +25,11 @@
       disabled = true;
     }
 
-    httpServerName = context.inputs.httpServerName;
-    plcCommand = context.inputs.plcCommand;
-    action = context.inputs.action;
-    label = context.inputs.label;
-    baseValue = context.inputs.baseValue;
+    label = context.inputs.info?.label || context.inputs.label;
+    action = context.inputs.info?.action || context.inputs.action;
+    httpServerName = context.inputs.settings?.httpServerName  || context.inputs.httpServerName;
+    plcCommand = context.inputs.settings?.plcCommand || context.inputs.plcCommand;
+    baseValue = context.inputs.settings?.baseValue || context.inputs.baseValue;
 
     cloudFunctionsClient = context.createBackendComponentClient();
 
@@ -48,7 +48,6 @@
       value,
     });
     disabled = false;
-    console.log(response);
   }
 </script>
 
