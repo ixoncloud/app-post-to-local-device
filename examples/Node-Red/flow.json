@@ -1,0 +1,180 @@
+[
+    {
+        "id": "646b4bd57d7c6391",
+        "type": "group",
+        "z": "c88a71c9.688818",
+        "name": "Post back to HTTP",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "511f9dfbde9053c0",
+            "d996859f7176c029",
+            "284eb8cfe44943f4",
+            "eab6d676c4b5aa6b",
+            "02cd56480427b920",
+            "bc9cec4988935537",
+            "4f858eaaca375073",
+            "cba7bc628865e3d8"
+        ],
+        "x": 1054,
+        "y": 1019,
+        "w": 732,
+        "h": 162
+    },
+    {
+        "id": "511f9dfbde9053c0",
+        "type": "http in",
+        "z": "c88a71c9.688818",
+        "g": "646b4bd57d7c6391",
+        "name": "",
+        "url": "/test",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 1140,
+        "y": 1060,
+        "wires": [
+            [
+                "d996859f7176c029"
+            ]
+        ]
+    },
+    {
+        "id": "d996859f7176c029",
+        "type": "template",
+        "z": "c88a71c9.688818",
+        "g": "646b4bd57d7c6391",
+        "name": "page",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "<html>\n    <head></head>\n    <body>\n        <h1>Hello {{ payload.name }}!</h1>\n    </body>\n</html>",
+        "x": 1330,
+        "y": 1060,
+        "wires": [
+            [
+                "284eb8cfe44943f4"
+            ]
+        ]
+    },
+    {
+        "id": "284eb8cfe44943f4",
+        "type": "http response",
+        "z": "c88a71c9.688818",
+        "g": "646b4bd57d7c6391",
+        "name": "",
+        "x": 1510,
+        "y": 1060,
+        "wires": []
+    },
+    {
+        "id": "eab6d676c4b5aa6b",
+        "type": "debug",
+        "z": "c88a71c9.688818",
+        "g": "646b4bd57d7c6391",
+        "name": "debug 11",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1680,
+        "y": 1140,
+        "wires": []
+    },
+    {
+        "id": "02cd56480427b920",
+        "type": "http in",
+        "z": "c88a71c9.688818",
+        "g": "646b4bd57d7c6391",
+        "name": "",
+        "url": "/test",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 1140,
+        "y": 1100,
+        "wires": [
+            [
+                "d996859f7176c029",
+                "bc9cec4988935537",
+                "cba7bc628865e3d8"
+            ]
+        ]
+    },
+    {
+        "id": "bc9cec4988935537",
+        "type": "switch",
+        "z": "c88a71c9.688818",
+        "g": "646b4bd57d7c6391",
+        "name": "",
+        "property": "payload.name",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "test",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 1310,
+        "y": 1140,
+        "wires": [
+            [
+                "4f858eaaca375073"
+            ]
+        ]
+    },
+    {
+        "id": "4f858eaaca375073",
+        "type": "change",
+        "z": "c88a71c9.688818",
+        "g": "646b4bd57d7c6391",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "10",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1460,
+        "y": 1140,
+        "wires": [
+            [
+                "eab6d676c4b5aa6b"
+            ]
+        ]
+    },
+    {
+        "id": "cba7bc628865e3d8",
+        "type": "debug",
+        "z": "c88a71c9.688818",
+        "g": "646b4bd57d7c6391",
+        "name": "debug 12",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1680,
+        "y": 1100,
+        "wires": []
+    }
+]
