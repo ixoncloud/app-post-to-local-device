@@ -1,10 +1,7 @@
 <script lang="ts">
-  import { onMount } from "svelte";
+  import { onMount } from 'svelte';
 
-  import type {
-    BackendComponentClient,
-    ComponentContext,
-  } from "@ixon-cdk/types";
+  import type { BackendComponentClient, ComponentContext } from '@ixon-cdk/types';
 
   export let context: ComponentContext;
 
@@ -21,14 +18,16 @@
   let disabled = false;
 
   onMount(() => {
-    if (context.mode === "edit") {
+    if (context.mode === 'edit') {
       disabled = true;
     }
 
     label = context.inputs.info?.label || context.inputs.label;
     action = context.inputs.info?.action || context.inputs.action;
-    httpServerName = context.inputs.settings?.httpServerName  || context.inputs.httpServerName;
-    plcCommand = context.inputs.settings?.plcCommand || context.inputs.plcCommand;
+    httpServerName =
+      context.inputs.settings?.httpServerName || context.inputs.httpServerName;
+    plcCommand =
+      context.inputs.settings?.plcCommand || context.inputs.plcCommand;
     baseValue = context.inputs.settings?.baseValue || context.inputs.baseValue;
 
     cloudFunctionsClient = context.createBackendComponentClient();
@@ -42,7 +41,7 @@
 
   async function execute(value: string) {
     disabled = true;
-    const response = await cloudFunctionsClient.call("execute", {
+    const response = await cloudFunctionsClient.call('execute', {
       httpServerName,
       plcCommand,
       value,
@@ -58,19 +57,14 @@
   <div class="flex row p-4 justify-center">
     {#if !action || !label || !httpServerName || !plcCommand}
       <p>check inputs</p>
-    {:else if action === "button"}
+    {:else if action === 'button'}
       <button
         class="button primary width-full"
         {disabled}
         on:click={() => execute(baseValue)}>{label}</button
       >
-    {:else if action === "input"}
-      <input
-        type="text"
-        class="input"
-        bind:value={baseValue}
-        {disabled}
-      />
+    {:else if action === 'input'}
+      <input type="text" class="input" bind:value={baseValue} {disabled} />
       <button
         class="button primary width-half max-width-200"
         {disabled}
